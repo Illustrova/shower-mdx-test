@@ -3,5 +3,6 @@ const withMDX = require("@next/mdx")({
 });
 module.exports = withMDX({
   pageExtensions: ["js", "jsx", "mdx"],
-  basePath: "/shower-mdx-test",
+      assetPrefix: "https://illustrova.github.io/shower-mdx-test/",
+
 });
