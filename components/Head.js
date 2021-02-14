@@ -2,7 +2,6 @@ import React from "react";
 import NextHead from "next/head";
 import getConfig from "next/config";
 const { publicRuntimeConfig } = getConfig();
-import NextHead from "next/head";
 
 const loadTheme = (name) => {
   switch (name) {
