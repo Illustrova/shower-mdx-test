@@ -4,5 +4,5 @@ const withMDX = require("@next/mdx")({
 module.exports = withMDX({
   pageExtensions: ["js", "jsx", "mdx"],
   assetPrefix: `/${process.env.REPO_NAME}/`,
- basePath: `/${process.env.REPO_NAME}/`
+ basePath: `/${process.env.REPO_NAME}`
 });
