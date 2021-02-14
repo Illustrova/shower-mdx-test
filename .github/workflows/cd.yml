@@ -23,10 +23,10 @@ jobs:
           key: ${{ runner.os }}-node-${{ hashFiles('**/yarn.lock') }}
           restore-keys: |
             ${{ runner.os }}-node-
-      - run: npm install
-      - run: npm run export
+      - run: yarn install
+      # - run: npm run export
       
-      # - run: PATH_PREFIX=${{github.event.repository.name}}/__admin OUTPUT_DIR=__admin BRIDGE_MODE=edit yarn build
+      - run: REPO_NAME=${{github.event.repository.name}} yarn export
       # - run: PATH_PREFIX=${{github.event.repository.name}} yarn build
       # - run: mv __admin public/
       # for access _next directory
