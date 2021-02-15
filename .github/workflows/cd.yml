@@ -26,7 +26,7 @@ jobs:
       - run: yarn install
       # - run: npm run export
       
-      - run: REPO_NAME=${{github.event.repository.name}} yarn export
+      - run: REPO_NAME=${{github.event.repository.name}} DEPLOY_URL=${{github.events.repository.html_url}} yarn export
       # - run: PATH_PREFIX=${{github.event.repository.name}} yarn build
       # - run: mv __admin public/
       # for access _next directory

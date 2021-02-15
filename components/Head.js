@@ -14,11 +14,13 @@ const loadTheme = (name) => {
 };
 
 const Head = ({ title, description, style, meta, theme }) => {
-  // const url = publicRuntimeConfig?.basePath;
+  const url = process.env.DEPLOY_URL || "";
   loadTheme(theme);
   const router = useRouter();
   console.log("🚀 ~ file: Head.js ~ line 22 ~ Head ~ router", router);
 
+  
+  console.log("==>", `${process.env}`)
   return (
     <NextHead>
       {/* General tags */}
@@ -44,9 +46,9 @@ const Head = ({ title, description, style, meta, theme }) => {
       {meta?.twitter && <meta name="twitter:site" content={meta.twitter} />}
       <meta name="twitter:title" content={title} />
       <meta name="twitter:description" content={description} />
-      {/* {meta?.cover && (
-        <meta name="twitter:image" content={url + "/" + meta.cover} />
-      )} */}
+      {meta?.cover && (
+         <meta name="twitter:image" content={url + "/" + meta.cover} />
+      )}
       <meta name="twitter:image:alt" content={title} />
       <style>
         {`
