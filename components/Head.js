@@ -1,6 +1,10 @@
 import React from "react";
 import NextHead from "next/head";
 import { useRouter } from "next/router";
+import getConfig from 'next/config'
+
+const {publicRuntimeConfig} = getConfig()
+const {DEPLOY_URL} = publicRuntimeConfig
 
 const loadTheme = (name) => {
   switch (name) {
@@ -14,7 +18,8 @@ const loadTheme = (name) => {
 };
 
 const Head = ({ title, description, style, meta, theme }) => {
-  const url = process.env.DEPLOY_URL;
+  const url = DEPLOY_URL;
+  console.log("🚀 ~ file: Head.js ~ line 18 ~ Head ~ url", url);
   loadTheme(theme);
   const router = useRouter();
 
