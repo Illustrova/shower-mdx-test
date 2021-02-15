@@ -6,6 +6,6 @@ module.exports = withMDX({
   assetPrefix: `/${process.env.REPO_NAME}/`,
  basePath: `/${process.env.REPO_NAME}`,
    publicRuntimeConfig: {
-    DEPLOY_URL: process.env.DEPLOY_URL
+    "DEPLOY_URL": process.env.DEPLOY_URL,
   }
 });
