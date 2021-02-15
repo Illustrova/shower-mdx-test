@@ -14,13 +14,12 @@ const loadTheme = (name) => {
 };
 
 const Head = ({ title, description, style, meta, theme }) => {
-  const url = process.env.DEPLOY_URL || "";
+  const url = process.env.DEPLOY_URL;
   loadTheme(theme);
   const router = useRouter();
-  console.log("🚀 ~ file: Head.js ~ line 22 ~ Head ~ router", router);
 
   
-  console.log("==>", `${process.env}`)
+  console.log("==>", `${JSON.stringify(process.env, 0, 2)}`)
   return (
     <NextHead>
       {/* General tags */}
