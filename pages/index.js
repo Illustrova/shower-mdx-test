@@ -3,15 +3,13 @@ import React, { useEffect, useRef } from "react";
 import matter from "gray-matter";
 import renderToString from "next-mdx-remote/render-to-string";
 import * as Components from "../components";
-import absoluteUrl from "next-absolute-url";
 
 const components = {
   section: Components.Slide,
   ...Components,
 };
 
-export default function Presentation({ content, frontMatter, origin }) {
-  console.log("🚀 ~ file: index.js ~ line 14 ~ Presentation ~ origin", origin);
+export default function Presentation({ content, frontMatter }) {
   const ref = useRef(null);
 
   useEffect(() => {
@@ -30,7 +28,7 @@ export default function Presentation({ content, frontMatter, origin }) {
 
   return (
     <>
-      <Components.Head {...frontMatter} origin={origin} />
+      <Components.Head {...frontMatter} />
       <div
         className="shower list"
         ref={ref}
@@ -42,11 +40,6 @@ export default function Presentation({ content, frontMatter, origin }) {
     </>
   );
 }
-
-export const getInitialProps = async ({ req, res }) => {
-  const { origin } = absoluteUrl(req);
-  return { origin }
-};
 
 export const getStaticProps = async () => {
   const source = fs.readFileSync(`./index.mdx`);

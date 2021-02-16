@@ -3,6 +3,10 @@ import NextHead from "next/head";
 import { useRouter } from "next/router";
 import getConfig from 'next/config'
 
+const {publicRuntimeConfig} = getConfig()
+console.log("🚀 ~ file: Head.js ~ line 7 ~ publicRuntimeConfig", publicRuntimeConfig);
+const {DEPLOY_URL} = publicRuntimeConfig
+console.log("🚀 ~ file: Head.js ~ line 8 ~ DEPLOY_URL", DEPLOY_URL);
 
 const loadTheme = (name) => {
   switch (name) {
@@ -15,8 +19,8 @@ const loadTheme = (name) => {
   }
 };
 
-const Head = ({ title, description, style, meta, theme, origin }) => {
-  const url = origin;
+const Head = ({ title, description, style, meta, theme }) => {
+  const url = DEPLOY_URL;
   console.log("🚀 ~ file: Head.js ~ line 18 ~ Head ~ url", url);
   loadTheme(theme);
   const router = useRouter();
